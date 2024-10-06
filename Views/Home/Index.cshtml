@@ -2,7 +2,83 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-white bg-info" style="width:18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Total Requests</h5>
+                    <p class="card-text">25</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-warning" style="width:18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Pending Requests</h5>
+                    <p class="card-text">25</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-success" style="width:18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Approved Requests</h5>
+                    <p class="card-text">25</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white bg-danger" style="width:18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Rejected Requests</h5>
+                    <p class="card-text">23</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="" style="margin-top:25px;">
+        <div class="card" >
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <h5>Books List</h5>
+                    </div>
+                    <div class="col-lg-10" style="">
+                        <div style="display:flex;justify-content:end;">
+                            <button class="btn btn-outline-success">Add new Book</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-body">
+            
+                  <table class="table">
+                      <thead>
+                          <tr>
+                              <th>Book ID</th>
+                              <th>Title</th>
+                              <th>Author</th>
+                              <th>Available</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <tr>
+                                <td>12223344</td>
+                                <td>HelloIsATest</td>
+                                <td>HelloIsATest</td>
+                                <td>HelloIsATest</td>
+                                <td>HelloIsATest</td>
+                          </tr>
+                      </tbody>
+                  </table>
+              
+            </div>
+        </div>
+    </div>
+  
+
 </div>

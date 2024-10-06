@@ -19,7 +19,7 @@ builder.Services.AddRazorPages();
 #region Session 
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(3);
+    options.IdleTimeout = TimeSpan.FromHours(3);
     options.Cookie.HttpOnly = true;
 });
 
@@ -57,7 +57,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 {
     //Cookie settings 
     options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+    options.ExpireTimeSpan = TimeSpan.FromHours(3);
     options.LoginPath = "/Account/Login"; // Once the section expired where to redirect the user
     options.SlidingExpiration = true;
 
