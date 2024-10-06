@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Mvc.Localization;
+
+
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<ul class="navbar-nav">
+    @if (SignInManager.Context.User.Identity.IsAuthenticated)
+{
+    <li class="nav-item">
+        <a id="manage" class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage"> @UserManager.GetUserName(User)!</a>
+    </li>
+    <li class="nav-item">
+            <form id="logoutForm" class="form-inline" asp-area="Identity" asp-action="LogOut" asp-controller="Account" method="post" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button id="logout" type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+        </form>
+    </li>
+    <li class="nav-item">
+
+        <a class="bi bi-gear" asp-controller="Parameter" asp-action="Index" style="cursor:pointer;"></a>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+            <a class="nav-link text-dark" id="register" style="cursor:pointer;" onclick="location.href='@Url.Action("Register", "Account")'">Register</a>
+    </li>
+    <li class="nav-item">
+            <a class="nav-link text-dark" id="login" style="cursor:pointer;" onclick="location.href='@Url.Action("Login", "Account")'">Login</a>
+    </li>
+}
+</ul>
