@@ -1,11 +1,20 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Projet_Biblio.Services;
 using Projet_Biblio.ViewModel.Book;
 
 namespace Projet_Biblio.Controllers
 {
     public class BookController : Controller
     {
+        private readonly IBookService _bookService; 
+
+        public BookController(IBookService bookService)
+        {
+            _bookService = bookService;
+        }
+
+
         // GET: BookController
         public ActionResult Index()
         {
@@ -27,7 +36,7 @@ namespace Projet_Biblio.Controllers
         // POST: BookController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(BookDto bookDto)
+        public async Task<ActionResult> Create(BookDto bookDto)
         {
             // Faire la validation 
             if (!ModelState.IsValid)
@@ -36,7 +45,7 @@ namespace Projet_Biblio.Controllers
 
             try
             {
-               
+               await _bookService.Create(bookDto);
 
                 return RedirectToAction("Index","Home");
             }

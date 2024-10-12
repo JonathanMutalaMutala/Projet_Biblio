@@ -7,7 +7,7 @@ namespace Projet_Biblio.ViewModel.Book
 
         [Required]
         [StringLength(25)]
-        public string BookTitle { get; set; }
+        public string Title { get; set; }
 
         [Required]
         [StringLength(25)]

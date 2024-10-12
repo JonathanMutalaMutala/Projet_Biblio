@@ -1,12 +1,18 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Projet_Biblio.DbContext;
+using Projet_Biblio.Extensions;
 using Projet_Biblio.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+
+//Custom Services 
+builder.Services.AddPersistenceServices(); 
+
 
 var connectionString = builder.Configuration.GetConnectionString("biblioConnectionString");
 
