@@ -48,7 +48,9 @@
                     </div>
                     <div class="col-lg-10" style="">
                         <div style="display:flex;justify-content:end;">
-                            <button class="btn btn-outline-success">Add new Book</button>
+                            <a asp-controller="Book" asp-action="Create" >
+                                <input type="button" value="Add new Book" class="btn btn-outline-success" />
+                            </a>
                         </div>
                     </div>
                 </div>

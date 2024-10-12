@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Projet_Biblio.ViewModel.Book;
 
 namespace Projet_Biblio.Controllers
 {
@@ -26,11 +27,18 @@ namespace Projet_Biblio.Controllers
         // POST: BookController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(BookDto bookDto)
         {
+            // Faire la validation 
+            if (!ModelState.IsValid)
+                return View();
+
+
             try
             {
-                return RedirectToAction(nameof(Index));
+               
+
+                return RedirectToAction("Index","Home");
             }
             catch
             {

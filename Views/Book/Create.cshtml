@@ -1,0 +1,60 @@
+﻿@using Projet_Biblio.ViewModel.Book
+
+@model BookDto
+
+<div class="container">
+
+
+    <h3>Create a book</h3>
+
+    <form id="createBookForm" asp-controller="Book" asp-action="Create" method="post" style="margin-top:20px;">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-floating mb-3">
+                    <input asp-for="BookTitle" type="text" class="form-control" id="floatingInput" placeholder="title">
+                    <label for="floatingInput">Book Title</label>
+                    <span asp-validation-for="BookTitle" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-floating mb-3">
+                    <input asp-for="Author" type="text" class="form-control" autocomplete="author" aria-required="true" placeholder="author" />
+                    <label>Author</label>
+                    <span asp-validation-for="Author" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="form-floating mb-3">
+                    <input asp-for="DatePublication" type="date" class="form-control" autocomplete="datePubication" aria-required="true" placeholder="Date de publication" />
+                    <label>Date de publication</label>
+                    <span asp-validation-for="DatePublication" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-floating mb-2">
+                    <input asp-for="ISBN" type="text" class="form-control" autocomplete="isbn" aria-required="true"  placeholder="ISBN"/>
+                    <label>ISBN</label>
+                    <span asp-validation-for="ISBN" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="form-floating mb-2">
+                    <input asp-for="NumberOfPages" class="form-control" autocomplete="numberOfPages" aria-required="true" placeholder="Number of pages" />
+                    <label>Number of pages</label>
+                    <span asp-validation-for="NumberOfPages" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="" style="display:flex; justify-content:end;margin-top:20px;">
+           
+            <div>
+                <a class="btn btn-secondary" asp-controller="Home" asp-action="Index" style="margin-right:20px;">Back</a>
+                <button class="btn btn-success" type="submit">Create</button>
+           
+            </div>
+
+        </div>
+    </form>
+</div> 
