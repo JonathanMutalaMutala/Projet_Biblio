@@ -1,13 +1,17 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Projet_Biblio.DbContext;
 using Projet_Biblio.Models;
 using Projet_Biblio.ViewModel.Book;
+using System.Collections.Immutable;
 
 namespace Projet_Biblio.Services
 {
     public interface IBookService
     {
-        Task<int> Create(BookDto bookDto);
+        Task<int> CreateAsync(BookDto bookDto);
+        Task<List<BookDto>> GetAllBooksAsync();
+        Task<BookDto> GetBookByIdAsync(int id);
     }
 
     public class BookService : IBookService
@@ -22,7 +26,7 @@ namespace Projet_Biblio.Services
             _biblioDbContext = biblioDbContext;
         }
 
-        public async Task<int> Create(BookDto bookDto)
+        public async Task<int> CreateAsync(BookDto bookDto)
         {
             bookDto.IsActive = true;
             var Book = _autoMapper.Map<Book>(bookDto);
@@ -34,8 +38,31 @@ namespace Projet_Biblio.Services
                return Book.Id;
             }
 
-            // Pour l'instant je retourne zero pour dire que l'operation ne se pas derouler comme prevu
-            return 0; 
+            throw new Exception("erreur ajout"); 
+        }
+
+        public async Task<List<BookDto>> GetAllBooksAsync()
+        {
+            var allBooks = await _biblioDbContext.Books.ToListAsync(); 
+
+            if(allBooks == null)
+            {
+                throw new Exception("Error de books"); 
+            }
+
+            return _autoMapper.Map<List<BookDto>>(allBooks);
+        }
+
+        public async Task<BookDto> GetBookByIdAsync(int id)
+        {
+           var singlBook  = await _biblioDbContext.Books.FirstOrDefaultAsync(x => x.Id == id && x.IsActive);
+
+            if(singlBook == null)
+            {
+                throw new Exception("Not found"); 
+            }
+
+            return _autoMapper.Map<BookDto>(singlBook);
         }
     }
 }

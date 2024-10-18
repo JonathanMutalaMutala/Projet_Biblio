@@ -1,4 +1,8 @@
-﻿@{
+﻿@using Projet_Biblio.ViewModel; 
+
+@model HomeViewModel; 
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -40,47 +44,99 @@
     </div>
 
     <div class="" style="margin-top:25px;">
-        <div class="card" >
-            <div class="card-header">
-                <div class="row">
-                    <div class="col-lg-2">
-                        <h5>Books List</h5>
-                    </div>
-                    <div class="col-lg-10" style="">
-                        <div style="display:flex;justify-content:end;">
-                            <a asp-controller="Book" asp-action="Create" >
-                                <input type="button" value="Add new Book" class="btn btn-outline-success" />
-                            </a>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <h5>Books List</h5>
+                            </div>
+                            <div class="col-lg-10" style="">
+                                <div style="display:flex;justify-content:end;">
+                                    <a asp-controller="Book" asp-action="Create">
+                                        <input type="button" value="Add Book" class="btn btn-outline-success" />
+                                    </a>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                    <div class="card-body">
+                        @if (Model.BookDtos != null)
+                        {
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Book ID</th>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                        <th>Category</th>
+                                        <th>Date de publication</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.BookDtos)
+                                    {
+                                        <tr>
+                                            <td>@item.ISBN</td>
+                                            <td>@item.Title</td>
+                                            <td>@item.Author</td>
+                                            <td>@item.Category</td>
+                                            <td>@item.DatePublication.ToShortDateString()</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
                     </div>
                 </div>
             </div>
-            <div class="card-body">
-            
-                  <table class="table">
-                      <thead>
-                          <tr>
-                              <th>Book ID</th>
-                              <th>Title</th>
-                              <th>Author</th>
-                              <th>Available</th>
-                              <th>Action</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                          <tr>
-                                <td>12223344</td>
-                                <td>HelloIsATest</td>
-                                <td>HelloIsATest</td>
-                                <td>HelloIsATest</td>
-                                <td>HelloIsATest</td>
-                          </tr>
-                      </tbody>
-                  </table>
-              
+            <div class="col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <h5>Membres</h5>
+                            </div>
+                            <div class="col-lg-10" style="">
+                                <div style="display:flex;justify-content:end;">
+                                    <a asp-controller="" asp-action="">
+                                        <input type="button" value="Add Member" class="btn btn-outline-success" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        @if (Model.BookDtos != null)
+                        {
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Book ID</th>
+                                        <th>Title</th>
+                                        <th>Author</th>
+                                        <th>Category</th>
+                                        <th>Date de publication</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model.BookDtos)
+                                    {
+                                        <tr>
+                                            <td>@item.ISBN</td>
+                                            <td>@item.Title</td>
+                                            <td>@item.Author</td>
+                                            <td>@item.Category</td>
+                                            <td>@item.DatePublication.ToShortDateString()</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-  
-
 </div>

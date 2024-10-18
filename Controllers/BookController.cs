@@ -45,7 +45,7 @@ namespace Projet_Biblio.Controllers
 
             try
             {
-               await _bookService.Create(bookDto);
+               await _bookService.CreateAsync(bookDto);
 
                 return RedirectToAction("Index","Home");
             }
