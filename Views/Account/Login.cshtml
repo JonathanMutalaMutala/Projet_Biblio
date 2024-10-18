@@ -14,13 +14,13 @@
             <form asp-action="Login" asp-controller="Account">
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-floating" style="margin-bottom: 20px;">
-                    <label asp-for="Email" class="control-label"></label>
                     <input asp-for="Email" class="form-control" placeholder="Email" />
+                    <label asp-for="Email" class="control-label"></label>
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="form-floating" style="margin-bottom: 20px;">
+                    <input asp-for="Password" class="form-control" placeholder="Password" id="floatingInput" />
                     <label asp-for="Password" class="control-label"></label>
-                    <input asp-for="Password" class="form-control" placeholder="Password" />
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
