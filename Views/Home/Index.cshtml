@@ -108,27 +108,23 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        @if (Model.BookDtos != null)
+                        @if (Model.AllUsers != null)
                         {
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Book ID</th>
-                                        <th>Title</th>
-                                        <th>Author</th>
-                                        <th>Category</th>
-                                        <th>Date de publication</th>
+                                        <th>FirstName</th>
+                                        <th>LastName</th>
+                                        <th>Email</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach (var item in Model.BookDtos)
+                                    @foreach (var item in Model.AllUsers)
                                     {
                                         <tr>
-                                            <td>@item.ISBN</td>
-                                            <td>@item.Title</td>
-                                            <td>@item.Author</td>
-                                            <td>@item.Category</td>
-                                            <td>@item.DatePublication.ToShortDateString()</td>
+                                            <td>@item.FirstName</td>
+                                            <td>@item.LastName</td>
+                                            <td>@item.Email</td>
                                         </tr>
                                     }
                                 </tbody>

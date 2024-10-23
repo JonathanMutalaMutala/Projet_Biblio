@@ -12,20 +12,23 @@ namespace Projet_Biblio.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IBookService _bookService;
+        private readonly IUserService _userService;
 
-        public HomeController(ILogger<HomeController> logger, IBookService bookService)
+        public HomeController(ILogger<HomeController> logger, IBookService bookService, IUserService userService)
         {
             _logger = logger;
             _bookService = bookService;
+            _userService = userService;
         }
 
         public async Task<IActionResult> Index()
         {
             var allBooks = await _bookService.GetAllBooksAsync();
-
+            var allUsers = await _userService.GetAllUsers();
             var model = new HomeViewModel()
             {
-                BookDtos = allBooks
+                BookDtos = allBooks,
+                AllUsers = allUsers
             }; 
 
             return View(model);

@@ -8,6 +8,7 @@ namespace Projet_Biblio.Extensions
         public static IServiceCollection AddPersistenceServices(this IServiceCollection services)
         {
             services.AddScoped<IBookService, BookService>();
+            services.AddScoped<IUserService, UserService>();
             //Ajout du service autoMapper à la collection des services 
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
