@@ -75,7 +75,7 @@ namespace Projet_Biblio.Controllers
                 FirstName = loginViewModel.FirstName, 
                 LastName = loginViewModel.LastName,
                 IsActive = true, 
-
+                
             };
 
             var userResult = await _userManager.CreateAsync(userInfo, loginViewModel.Password); // Permet de crée un utilisateur 
@@ -83,6 +83,7 @@ namespace Projet_Biblio.Controllers
             if (userResult.Succeeded)
             {
                 await _signInManager.SignInAsync(userInfo, isPersistent: false);
+                await _userManager.AddToRoleAsync(userInfo, loginViewModel.Role);
                 return RedirectToAction("Index", "Home"); // Redirige ver la page de connexion 
             }
 

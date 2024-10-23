@@ -18,7 +18,10 @@ var connectionString = builder.Configuration.GetConnectionString("biblioConnecti
 
 builder.Services.AddDbContext<BiblioDbContext>(options => options.UseSqlServer(connectionString)); // Connect to the sqlServer using a connectionString
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<BiblioDbContext>();   
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<BiblioDbContext>();
+
+
 
 builder.Services.AddRazorPages();
 
