@@ -82,7 +82,7 @@ namespace Projet_Biblio.Controllers
 
             if (userResult.Succeeded)
             {
-                await _signInManager.SignInAsync(userInfo, isPersistent: false);
+                //await _signInManager.SignInAsync(userInfo, isPersistent: false);
                 await _userManager.AddToRoleAsync(userInfo, loginViewModel.Role);
                 return RedirectToAction("Index", "Home"); // Redirige ver la page de connexion 
             }
