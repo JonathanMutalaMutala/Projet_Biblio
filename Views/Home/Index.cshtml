@@ -72,6 +72,7 @@
                                         <th>Author</th>
                                         <th>Category</th>
                                         <th>Date de publication</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -83,6 +84,11 @@
                                             <td>@item.Author</td>
                                             <td>@item.Category</td>
                                             <td>@item.DatePublication.ToShortDateString()</td>
+                                            <td>
+                                                <a asp-controller="Book" asp-action="Details" asp-route-id="@item.Id">
+                                                    <input type="button" value="Details" class="btn btn-info" />
+                                                </a>
+                                            </td>
                                         </tr>
                                     }
                                 </tbody>

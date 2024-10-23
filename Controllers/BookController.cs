@@ -22,8 +22,9 @@ namespace Projet_Biblio.Controllers
         }
 
         // GET: BookController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Details(int id)
         {
+            var currentBook = await _bookService.GetBookByIdAsync(id);
             return View();
         }
 

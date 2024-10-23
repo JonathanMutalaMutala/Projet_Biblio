@@ -4,10 +4,12 @@ namespace Projet_Biblio.ViewModel.Book
 {
     public class BookDto
     {
+        public int Id { get; set; }
 
         [Required]
         [StringLength(25)]
         public string Title { get; set; }
+
 
         [Required]
         [StringLength(25)]
