@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Projet_Biblio.DbContext;
 
@@ -11,9 +12,11 @@ using Projet_Biblio.DbContext;
 namespace Projet_Biblio.Migrations
 {
     [DbContext(typeof(BiblioDbContext))]
-    partial class BiblioDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241022232526_AddRoles")]
+    partial class AddRoles
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -245,28 +248,6 @@ namespace Projet_Biblio.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "53965792-59c5-4d25-b6fa-c096541856d0",
-                            RoleId = "33839dce-3f1d-4460-8c35-cec7aeac4608"
-                        },
-                        new
-                        {
-                            UserId = "c10e1a0e-9b8f-407e-8f38-f9ad7a8028d4",
-                            RoleId = "524e1a90-a13f-4bc1-bea8-b062539bee1c"
-                        },
-                        new
-                        {
-                            UserId = "011edf74-2c6e-4513-a965-4191f34405a9",
-                            RoleId = "126de5ee-a527-4781-90ae-088f50c4e5bb"
-                        },
-                        new
-                        {
-                            UserId = "da1ce89a-476d-46d0-897e-ee7aa6576179",
-                            RoleId = "237f8bf4-22ef-4f81-8375-92b5516ae1a0"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -352,84 +333,6 @@ namespace Projet_Biblio.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasDiscriminator().HasValue("User");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "53965792-59c5-4d25-b6fa-c096541856d0",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "20d18d93-3d2a-4501-bec4-a755930cafa8",
-                            Email = "admin@localhost.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@LOCALHOST.COM",
-                            NormalizedUserName = "Admin",
-                            PasswordHash = "AQAAAAIAAYagAAAAENSDbMg9O0QhTUES2zlqpNUiNDj8SwC49uMyRXyybnR1Qn50x4YlkKhEhaU46Jm/1A==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "d3dd53df-8fb9-4d9a-a05a-ae82b5e5b816",
-                            TwoFactorEnabled = false,
-                            UserName = "Admin",
-                            FirstName = "System",
-                            IsActive = true,
-                            LastName = "Admin"
-                        },
-                        new
-                        {
-                            Id = "c10e1a0e-9b8f-407e-8f38-f9ad7a8028d4",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "50a3c59b-bafe-4942-b5ae-9821d0c362e3",
-                            Email = "librarian@localhost.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "LIBRARIAN@LOCALHOST.COM",
-                            NormalizedUserName = "LIBRARIAN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEN7H39ENovdb1s8iOGDTN9/n75R4wughRFJt79f759Psgokxsy6eZl8yb0sfcIAC5w==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "0cbc99e8-83bb-4376-be61-b056de551789",
-                            TwoFactorEnabled = false,
-                            UserName = "librarian",
-                            FirstName = "librarian",
-                            IsActive = true,
-                            LastName = "librarian"
-                        },
-                        new
-                        {
-                            Id = "011edf74-2c6e-4513-a965-4191f34405a9",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "51d5031f-b831-43fa-b798-74a7d5671e8b",
-                            Email = "member@localhost.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "MEMBER@LOCALHOST.COM",
-                            NormalizedUserName = "MEMBER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEFY0cSqu54h5GZZn606vFLoVdmyL06jptRw2/vFeufvvQLhvvRXrI2PI3mOnllwa+w==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "3a6a45d7-8009-43ba-807d-56c849e7d95f",
-                            TwoFactorEnabled = false,
-                            UserName = "Member",
-                            FirstName = "Member",
-                            IsActive = true,
-                            LastName = "Member"
-                        },
-                        new
-                        {
-                            Id = "da1ce89a-476d-46d0-897e-ee7aa6576179",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "b49aa835-6b05-4597-9cda-878da4cb2d89",
-                            Email = "employee@localhost.com",
-                            EmailConfirmed = true,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "EMPLOYEE@LOCALHOST.COM",
-                            NormalizedUserName = "EMPLOYEE",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHVM+g6Bh/QUBRXwbJlKlbxn0EuyiGaIBa5GWwNRr9Kzfh0kqGFtarqaUDylJVpTnQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "2f33bb40-6f5a-40fc-b494-320f6ef88830",
-                            TwoFactorEnabled = false,
-                            UserName = "Employee",
-                            FirstName = "Employee",
-                            IsActive = true,
-                            LastName = "Employee"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
